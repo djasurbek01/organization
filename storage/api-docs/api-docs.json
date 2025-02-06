@@ -1,0 +1,171 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Organization API",
+        "description": "API для организаций, зданий и деятельности",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/organizations/building/{id}": {
+            "get": {
+                "tags": [
+                    "Organizations"
+                ],
+                "summary": "Список организаций в здании",
+                "operationId": "8814a7a1ca2fe4ddee9f5c158f9d0f9d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID здания",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешно"
+                    },
+                    "404": {
+                        "description": "Здание не найдено"
+                    }
+                }
+            }
+        },
+        "/api/organizations/activity/{id}": {
+            "get": {
+                "tags": [
+                    "Organizations"
+                ],
+                "summary": "Список организаций по деятельности",
+                "operationId": "e70f6e3473d85b01b06bc3023a515c67",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID деятельности",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешно"
+                    },
+                    "404": {
+                        "description": "Вид деятельности не найден"
+                    }
+                }
+            }
+        },
+        "/api/organizations/{id}": {
+            "get": {
+                "tags": [
+                    "Organizations"
+                ],
+                "summary": "Информация о организации",
+                "operationId": "68e75650b204083886e125e02aaa2f4b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID организации",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешно"
+                    },
+                    "404": {
+                        "description": "Организация не найдена"
+                    }
+                }
+            }
+        },
+        "/api/organizations/search": {
+            "get": {
+                "tags": [
+                    "Organizations"
+                ],
+                "summary": "Поиск организаций по названию",
+                "operationId": "82c14e88e2aff3b9bf393d56887a773a",
+                "parameters": [
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "description": "Название организации",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешно"
+                    }
+                }
+            }
+        },
+        "/api/organizations/location": {
+            "get": {
+                "tags": [
+                    "Organizations"
+                ],
+                "summary": "Список организаций в географические координаты",
+                "operationId": "3bca701d2c192a78da354df6e7ccf7a7",
+                "parameters": [
+                    {
+                        "name": "lat",
+                        "in": "query",
+                        "description": "Широта",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    },
+                    {
+                        "name": "lng",
+                        "in": "query",
+                        "description": "Долгота",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    },
+                    {
+                        "name": "radius",
+                        "in": "query",
+                        "description": "Географические координаты в километрах (по умолчанию 10 км)",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 10
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешно"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Organizations",
+            "description": "API организаций"
+        }
+    ]
+}
