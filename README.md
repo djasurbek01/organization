@@ -53,11 +53,6 @@ docker exec -it organization_test_app php artisan config:clear
 
 ### 8. Доступ к проекту
 
-После успешного запуска, проект будет доступен по адресу:
-```
-http://localhost:8000
-```
-
 ## Работа с API (Swagger UI)
 После запуска API документация доступна по адресу:
 ```
